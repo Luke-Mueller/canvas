@@ -10,7 +10,7 @@ function draw() {
   canvas.height = wy; 
 
 
-  //  stars ---------------------------------
+  //  stars pattern ---------------------------------
 
   // for(let i = 0; i < 5000; i++) {
   //   ctx.beginPath();
@@ -26,31 +26,47 @@ function draw() {
   // }
 
 
-  // // bubbles ---------------------------------
+  //  bubbles pattern ---------------------------------
 
-  for(let i = 0; i < 2000; i++) {
+  for(let i = 0; i < 1000; i++) {
     ctx.beginPath();
     const x = Math.random() * wx;
     const y = Math.random() * wy;
-    const r = Math.random() * 10 + 3;
+    const r = Math.random() * 25 + 3;
     const sAngle = 0;
     const eAngle = Math.PI * 2;
 
     ctx.shadowOffsetY = -1;
-    ctx.shadowColor = 'rgba(150, 150, 150, 0.5)';
+    ctx.shadowColor = 'rgb(150, 150, 150)';
 
     const radgrad = ctx.createRadialGradient(x, y, r, x, y-8, r);
-    radgrad.addColorStop(0, 'rgb(200, 200, 200)')
-    radgrad.addColorStop(0.9, 'rgba(203, 205, 180, 0.5)')
-    radgrad.addColorStop(1, 'rgba(198, 200, 175, 0.5)')
+    radgrad.addColorStop(0, 'rgba(200, 200, 200, 0.4)')
+    radgrad.addColorStop(0.2, 'rgba(200, 200, 200, 0.3)')
+    radgrad.addColorStop(0.4, 'rgba(200, 200, 200, 0.2)')
+    // radgrad.addColorStop(0.6, 'rgba(200, 200, 200, 0.2)')
+    // radgrad.addColorStop(0.8, 'rgba(200, 200, 200, 0.1)')
+    radgrad.addColorStop(1, 'transparent')
 
     ctx.fillStyle = radgrad;
+    ctx.strokeStyle = 'rgba(150,150,150,0.3)';
+    ctx.lineWidth = 0.5;
     ctx.arc(x, y, r, sAngle, eAngle, false);
     ctx.fill();
+    ctx.stroke();
   }
 
+    /*
 
-  //  graph ---------------------------------
+    to animate bubbles...   if(y === 0) y = wy
+
+    */
+
+
+
+
+
+  //  palette pattern ---------------------------------
+
   // for(let i = 0; i < 6; i++) {
   //   for(let j = 0; j < 6; j++) {
   //     ctx.fillStyle = 'rgb(' + (
