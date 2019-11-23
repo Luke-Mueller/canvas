@@ -1,0 +1,17 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: linear-gradient(#12263a, rgb(199, 201, 176));
+  background-size: cover;
+  margin: 0;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* color: rgb(225,230,215) */
+}
+
