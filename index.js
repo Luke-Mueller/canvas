@@ -11,6 +11,7 @@ function draw() {
 
 
   //  stars ---------------------------------
+  
   // for(let i = 0; i < 5000; i++) {
   //   ctx.beginPath();
   //   const x = Math.random() * wx;
