@@ -11,7 +11,7 @@ function draw() {
 
 
   //  stars ---------------------------------
-  
+
   // for(let i = 0; i < 5000; i++) {
   //   ctx.beginPath();
   //   const x = Math.random() * wx;
@@ -26,7 +26,7 @@ function draw() {
   // }
 
 
-  // bubbles ---------------------------------
+  // // bubbles ---------------------------------
 
   for(let i = 0; i < 1000; i++) {
     ctx.beginPath();
@@ -37,9 +37,9 @@ function draw() {
     const eAngle = Math.PI * 2;
 
     const radgrad = ctx.createRadialGradient(x, y, r, x, y-8, r);
-    radgrad.addColorStop(0, 'white')
+    radgrad.addColorStop(0, 'rgb(200, 200, 200)')
+    radgrad.addColorStop(0.8, 'rgba(203, 205, 180, 0.5)')
     radgrad.addColorStop(1, 'rgba(198, 200, 175, 0.5)')
-    // radgrad.addColorStop(0.5, 'rgba(98, 100, 75, ' + Math.random() + ')')
 
     ctx.fillStyle = radgrad;
     ctx.arc(x, y, r, sAngle, eAngle, false);
