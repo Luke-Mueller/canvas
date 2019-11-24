@@ -28,10 +28,10 @@ function draw() {
 
   //  bubbles pattern ---------------------------------
 
-  for(let i = 0; i < 1000; i++) {
+  for(let i = 0; i < 2000; i++) {
     const x = Math.random() * wx;
     const y = Math.random() * wy;
-    const r = Math.random() * 30;
+    const r = Math.random() * 10 + 3;
     const sAngle = 0;
     const eAngle = Math.PI * 2;
 
@@ -39,17 +39,20 @@ function draw() {
     ctx.shadowColor = 'rgb(180, 180, 180)';
 
     const radgrad = ctx.createRadialGradient(x, y, r, x, y - 8, r / 2);
-    radgrad.addColorStop(0, 'rgba(180, 180, 180, 0.35)')
-    radgrad.addColorStop(0.1, 'rgba(170, 170, 170, 0.2)')
-    radgrad.addColorStop(0.4, 'rgba(160, 160, 160, 0.15)')
+    radgrad.addColorStop(0, 'rgba(200, 200, 200, 0.5)')
+    radgrad.addColorStop(0.1, 'rgba(180, 180, 180, 0.3)')
+    radgrad.addColorStop(0.4, 'rgba(160, 160, 160, 0.2)')
     radgrad.addColorStop(0.6, 'rgba(150, 150, 150, 0.1)')
     radgrad.addColorStop(0.8, 'rgba(150, 150, 150, 0.05)')
     radgrad.addColorStop(1, 'rgba(150, 150, 150, 0.02)')
 
     ctx.beginPath();
     ctx.fillStyle = radgrad;
+    ctx.strokeStyle = 'rgba(200, 200, 200, 0.3)'
+    ctx.lineWidth = 0.2;
     ctx.arc(x, y, r, sAngle, eAngle, false);
     ctx.fill();
+    ctx.stroke();
 
     ctx.beginPath();
     ctx.fillStyle = 'rgba(150, 150, 150, 0.3)';
