@@ -49,6 +49,7 @@ class Bubble {
       radgrad.addColorStop(0.6, 'rgba(150, 150, 150, 0.1)');
       radgrad.addColorStop(0.8, 'rgba(150, 150, 150, 0.05)');
       radgrad.addColorStop(1, 'rgba(150, 150, 150, 0.02)');
+
       //  Outer bubble
       ctx.beginPath();
       ctx.fillStyle = radgrad;
@@ -57,6 +58,7 @@ class Bubble {
       ctx.arc(this.x, this.y, this.r, this.sAngle, this.eAngle, false);
       ctx.fill();
       ctx.stroke();
+
       //  Inner bubble
       ctx.beginPath();
       ctx.fillStyle = 'rgba(150, 150, 150, 0.3)';
@@ -83,7 +85,7 @@ function render() {
     if(bubbles[i].y > -bubbles[i].r) {
       bubbles[i].y = bubbles[i].y - bubbles[i].vel;
     } else {
-      bubbles[i].y = wy;
+      bubbles[i].y = wy + bubbles[i].r * 4;
       bubbles[i].x = Math.random() * wx;
     };
   };
@@ -93,7 +95,7 @@ function render() {
 render();
 
 setInterval(()=> {
-  if(bubbles.length < 85) {
+  if(bubbles.length < 80) {
     bubbles.push(new Bubble());
   };
 }, 250);

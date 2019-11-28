@@ -2,7 +2,12 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: linear-gradient( rgb(18, 38, 58), rgb(199, 201, 176));
+  
+  /* Stars background */
+  /* background-image: linear-gradient(rgb(18, 38, 58), rgb(199, 201, 176)); */
+  
+  /* Bubbles background */
+  background-image: linear-gradient(rgb(3, 25, 48), rgb(211, 223, 181));
   background-size: cover;
   margin: 0;
   overflow: hidden;
