@@ -22,17 +22,18 @@ canvas.height = wy;
 // }
 
 
+
+
 //  Bubbles pattern ---------------------------------
 
-const grav = -1;
 class Bubble {
   constructor() {
     this.x = Math.random() * wx;
-    this.y = 0;
-    this.r = Math.random() * 10 + 3;
+    this.y = wy;
+    this.r = Math.random() * 15 + 3;
     this.dy = Math.random() * 2;
     this.dx = Math.round((Math.random() - 0.5) * 10);
-    this.vel = Math.random() / 5;
+    this.vel = Math.random() + 1;
     this.sAngle = 0;
     this.eAngle = Math.PI * 2;
     this.update = () => {
@@ -79,36 +80,25 @@ function render() {
   ctx.clearRect(0, 0, wx, wy);
   for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].update();
-    bubbles[i].y += bubbles[i].dy;
-    bubbles[i].x += bubbles[i].dx;
-    if (bubbles[i].y + bubbles[i].r >= wy) {
-      bubbles[i].dy = -bubbles[i].dy * grav;
+    if(bubbles[i].y > -bubbles[i].r) {
+      bubbles[i].y = bubbles[i].y - bubbles[i].vel;
     } else {
-      bubbles[i].dy += bubbles[i].vel;
-    }    
-    if(bubbles[i].x + bubbles[i].r > wx || bubbles[i].x - bubbles[i].r < 0){
-        bubbles[i].dx = -bubbles[i].dx;
-    }
-  }
+      bubbles[i].y = wy;
+      bubbles[i].x = Math.random() * wx;
+    };
+  };
   requestAnimationFrame(render);
-}
+};
 
 render();
 
 setInterval(()=> {
-  if(bubbles.length < 50) {
+  if(bubbles.length < 85) {
     bubbles.push(new Bubble());
   };
-}, 500);
+}, 250);
 
-  /*
-
-  to animate bubbles...   if(y === 0) y = wy + r
-
-  */
-
-  
-//  palette pattern ---------------------------------
+  //  palette pattern ---------------------------------
 
 // const xlength = wx / 50;
 // const ylength = wy / 50;
