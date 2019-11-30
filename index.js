@@ -7,7 +7,7 @@ canvas.width = wx;
 canvas.height = wy; 
 
 
-//  Stars pattern ---------------------------------
+//   --------------------------------- Stars pattern ---------------------------------  
 
 
 // class Star {
@@ -70,13 +70,13 @@ canvas.height = wy;
 // while(stars.length < 2000) stars.push(new Star());
 
 
-//  Bubbles pattern ---------------------------------
+//  --------------------------------- BUBBLES PATTERN ---------------------------------
 
 class Bubble {
   constructor() {
     this.x = Math.random() * wx;
     this.y = wy;
-    this.r = Math.random() * 15 + 10;
+    this.r = Math.random() * 10 + 10;
     this.vel = Math.random() + 1;
     this.sAngle = 0;
     this.eAngle = Math.PI * 2;
@@ -88,14 +88,13 @@ class Bubble {
 
       //  Outer bubble radial gradient fillStyle
       const radgrad = ctx.createRadialGradient(this.x, this.y, this.r, this.x, this.y - 8, this.r / 2);
-      radgrad.addColorStop(0, 'rgba(100, 100, 100, 0.2)');
-      radgrad.addColorStop(0.1, 'rgba(180, 0, 0, 0.15)');
-      radgrad.addColorStop(0.2, 'rgba(180, 120, 0, 0.15)');
-      radgrad.addColorStop(0.3, 'rgba(170, 170, 0, 0.15)');
-      radgrad.addColorStop(0.4, 'rgba(0, 160, 0, 0.15)');
-      radgrad.addColorStop(0.5, 'rgba(0, 0, 150, 0.05)');
-      radgrad.addColorStop(0.6, 'rgba(140, 0, 140, 0.05)');
-      radgrad.addColorStop(0.7, 'rgba(150, 150, 150, 0.02)');
+      radgrad.addColorStop(0, 'rgba(200, 200, 200, 0.8)');
+      radgrad.addColorStop(0.1, 'rgba(180, 0, 0, 0.4)');
+      radgrad.addColorStop(0.15, 'rgba(180, 120, 0, 0.5)');
+      radgrad.addColorStop(0.25, 'rgba(170, 170, 0, 0.3)');
+      radgrad.addColorStop(0.4, 'rgba(0, 160, 0, 0.3)');
+      radgrad.addColorStop(0.5, 'rgba(0, 0, 150, 0.2)');
+      radgrad.addColorStop(0.6, 'rgba(150, 150, 150, 0.05)');
 
       //  Outer bubble
       ctx.beginPath();
@@ -108,7 +107,7 @@ class Bubble {
 
       //  Inner bubble
       ctx.beginPath();
-      ctx.fillStyle = 'rgba(100, 100, 100, 0.3)';
+      ctx.fillStyle = 'rgba(150, 150, 150, 0.3)';
       ctx.arc(this.x, this.y + this.r - 2, this.r / 20, this.sAngle, this.eAngle, false);
       ctx.fill();
     }
@@ -167,14 +166,14 @@ function render() {
 render();
 
 setInterval(()=> {
-  if(bubbles.length < 75) {
+  if(bubbles.length < 80) {
     bubbles.push(new Bubble());
   };
 }, 500);
 
 
 
-//  palette pattern ---------------------------------
+//  --------------------------------- PALETTE PATTERN ---------------------------------
 
 // const xlength = wx / 50;
 // const ylength = wy / 50;
