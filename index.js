@@ -76,8 +76,8 @@ class Bubble {
   constructor() {
     this.x = Math.random() * wx;
     this.y = wy;
-    this.r = Math.random() * 10 + 10;
-    this.vel = Math.random() + 1;
+    this.r = Math.random() * 15 + 10;
+    this.vel = Math.random() + 3;
     this.sAngle = 0;
     this.eAngle = Math.PI * 2;
     this.update = () => {
@@ -94,7 +94,7 @@ class Bubble {
       radgrad.addColorStop(0.25, 'rgba(170, 170, 0, 0.3)');
       radgrad.addColorStop(0.4, 'rgba(0, 160, 0, 0.3)');
       radgrad.addColorStop(0.5, 'rgba(0, 0, 150, 0.2)');
-      radgrad.addColorStop(0.6, 'rgba(150, 150, 150, 0.05)');
+      radgrad.addColorStop(0.6, 'rgba(150, 150, 150, 0.1)');
 
       //  Outer bubble
       ctx.beginPath();
@@ -141,7 +141,7 @@ function render() {
         '0, ' +
         Math.floor(255 - rgbX * j) + ')'
       )
-      ctx.strokeStyle = '#777777';
+      ctx.strokeStyle = '#222222';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.fillRect(j * 50, i * 50, 50, 50);
@@ -166,7 +166,7 @@ function render() {
 render();
 
 setInterval(()=> {
-  if(bubbles.length < 80) {
+  if(bubbles.length < 400) {
     bubbles.push(new Bubble());
   };
 }, 500);
