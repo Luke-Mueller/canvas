@@ -4,7 +4,7 @@ body {
   position: relative;
   
   /* Stars background */
-  /* background-image: linear-gradient(rgb(18, 38, 58), rgb(199, 201, 176)); */
+  background-image: linear-gradient(rgb(18, 38, 58), rgb(199, 201, 176));
   
   /* Bubbles background */
   /* background-image: linear-gradient(rgb(3, 25, 48), rgb(214, 221, 185)); */
