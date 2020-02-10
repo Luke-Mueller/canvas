@@ -2,9 +2,9 @@
 let mx;
 let my;
 
-document.addEventListener('mousemove', e => {
-  mx = e.screenX;
-  my = e.screenY;
+window.addEventListener('mousemove', e => {
+  mx = e.pageX;
+  my = e.pageY;
 });
 
 //  Canvas dimensions
@@ -15,7 +15,9 @@ let wy = window.innerHeight;
 canvas.width = wx;
 canvas.height = wy;
 
-//  --------------------------------- BUBBLES PATTERN ---------------------------------
+//  BUBBLES PATTERN
+
+const bubbles = [];
 
 class Bubble {
   constructor() {
@@ -59,8 +61,6 @@ class Bubble {
   };
 };
 
-const bubbles = [];
-
 function render() {
 
   //  clear the canvas
@@ -73,7 +73,7 @@ function render() {
 
   ctx.clearRect(0, 0, wx, wy);
 
-  //   //  draw color palette background
+  //  draw color palette background
   const xlength = wx / 50;
   const ylength = wy / 50;
   const rgbX = 255 / xlength;
@@ -103,13 +103,15 @@ function render() {
       bubbles[i].y = Math.floor(wy + bubbles[i].r * 4);
       bubbles[i].x = Math.floor(Math.random() * wx);
     };
-    if (Math.abs(bubbles[i].x - mx) < bubbles[i].r + 12 && Math.abs(bubbles[i].y - (my - 75)) < bubbles[i].r + 12) {
-      const num = Math.ceil(Math.random() * 4);
+    if (
+      Math.abs(bubbles[i].x - mx) < bubbles[i].r + 12 &&
+      Math.abs(bubbles[i].y - my) < bubbles[i].r + 12
+    ) {
+      const num = Math.ceil(Math.random() * 3);
       new Audio(num + '.mp3').play();
       bubbles[i].y = Math.floor(wy + bubbles[i].r * 4);
       bubbles[i].x = Math.floor(Math.random() * wx);
-      console.log(bubbles[i].vel);
-    }
+    };
   };
 
   requestAnimationFrame(render);
