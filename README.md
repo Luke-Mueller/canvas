@@ -1,3 +1,9 @@
 This is practice using the canvas API with JavaScript to render new backgrounds.
 
-Comment in any pattern I've created in the index.js file and its correponding background in index.css and open the index.html file to view them.
+To use:
+
+1. Open the index.html file in your browser.
+
+2. click on a different window than the one running index.html (doing so resolves a bug)
+
+3. Return to the window running index.html and start popping bubbles!
